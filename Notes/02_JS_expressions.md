@@ -1,11 +1,13 @@
 # JavaScript Expression
 
-- Evaluated expressions refer to JS expressions that are calculated and rendered within your JSX code.
+- Evaluated expressions refer to JS expressions that are calculated and rendered within your JSX code. JSX allows you to write HTML-like syntax directly in JS file and integrate dynamic data into UI.
 
-- JSX allows you to write HTML-like syntax directly in your JS files and integrate dynamic data into your UI.
+- Expressions vs. Statements:
+  - Expressions: Return a value and can be embedded in JSX. 
+    `<p>{items.length}</p>`
 
-- Any code written in JSX return() context. And data wrapped in curly braces {} is called "evaluated expression". e.g., {username}
-
-- Meaning that code is final result of business logic.
-
-- Any business logic code (like if-else, loops etc.) must be written outside the return() context. (01basicvite - App.jsx)
+  - Statements: Perform actions but don't return a value directly and cannot be embedded in JSX.
+    ```
+    <div>
+      {if (isLoggedIn) { return <p>Welcome back!</p>; }}
+    </div>
