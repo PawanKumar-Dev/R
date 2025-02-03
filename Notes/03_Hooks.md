@@ -1,4 +1,4 @@
-# Hooks - use
+# Hooks - useEffect()
 
 - When we create normal counter with classic JS concept. We see our variable is updated. But in UI updated data is not shown. This happens becoz all UI changes are controlled by React itself. (03counterhook - App.jsx)
 
@@ -16,4 +16,4 @@
 
 - "useState hook" returns an "Array" with two items:
   1. Current State Value (count): This holds the current value of your state variable.
-  2. Function to Update the State (setCount): Calling this function updates the state and causes React to re-render the component to reflect the new state.(03counterhook - AppTwo.jsx)
+  2. Function to Update the State (setCount): Calling this function updates the state and causes React to re-render the component to reflect the new state. (03counterhook - AppTwo.jsx)
