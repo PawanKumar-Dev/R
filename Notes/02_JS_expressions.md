@@ -11,3 +11,11 @@
     <div>
       {if (isLoggedIn) { return <p>Welcome back!</p>; }}
     </div>
+
+
+- If logic code is big, move the logic outside of the JSX.
+- Variables, maths operations, function calls, terniary operator and logical operator(&&) can be used inside JS expression {}
+- IIFE can be run as well.
+
+
+- Remember we cannot use statements (like loops or if statements) directly inside JSX.
