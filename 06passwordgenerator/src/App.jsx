@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
@@ -7,24 +7,24 @@ function App() {
   let [numberIncluded, setNumberIncluded] = useState(false)
   let [specialCharacterIncluded, setSpecialCharacterIncluded] = useState(false)
 
-  const passGenerator = () => {
+  const passGenerator = useCallback(() => {
     let chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    password = ''
+    let newPassword = ''
 
     chars = (numberIncluded) ? chars += '0123456789' : chars
     chars = (specialCharacterIncluded) ? chars += '!@#$%^&*()_+[]{}|;:,.<>?' : chars
 
     for (let i = 1; i <= passLength; i++) {
       let randomIndex = Math.floor(Math.random() * chars.length)
-      password += chars.charAt(randomIndex)
+      newPassword += chars.charAt(randomIndex)
     }
-    setPassword(password)
-  }
+    setPassword(newPassword)
+  }, [passLength, numberIncluded, specialCharacterIncluded])
 
 
   useEffect(() => {
     passGenerator()
-  }, [passLength, numberIncluded, specialCharacterIncluded])
+  }, [passGenerator])
 
 
   return (
