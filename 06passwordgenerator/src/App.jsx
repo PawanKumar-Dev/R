@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import './App.css'
 
 function App() {
@@ -6,6 +6,8 @@ function App() {
   let [password, setPassword] = useState('')
   let [numberIncluded, setNumberIncluded] = useState(false)
   let [specialCharacterIncluded, setSpecialCharacterIncluded] = useState(false)
+
+  const copyPassword = useRef(null)
 
   const passGenerator = useCallback(() => {
     let chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -19,6 +21,7 @@ function App() {
       newPassword += chars.charAt(randomIndex)
     }
     setPassword(newPassword)
+
   }, [passLength, numberIncluded, specialCharacterIncluded])
 
 
@@ -37,6 +40,7 @@ function App() {
         readOnly
         style={{ marginBottom: "20px" }}
         size={30}
+        ref={copyPassword}
       />
 
       <br />
@@ -56,6 +60,10 @@ function App() {
       <br />
 
       Special Characters <input type="checkbox" value={specialCharacterIncluded} onChange={() => setSpecialCharacterIncluded(!specialCharacterIncluded)} />
+
+      <br /><br />
+
+      <button onClick={() => navigator.clipboard.writeText(copyPassword.current.value)}>Copy</button>
     </>
   )
 }
