@@ -4,4 +4,4 @@
 
 - Context API is best used for "global" data that many components need access to. Such as themes, user authentication, or language preferences.
 
-- 
+- But context api get complex when in large apps. In such case, Redux-Toolkit is better solution.
