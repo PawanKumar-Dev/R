@@ -1,4 +1,4 @@
-# Details of context API
+# Details of context API 1st way
 
 - We seprate our all context in seprate folder "context".
 - Our context depends upon what code we are sharing like for user data sharing: "UserContext.js" OR for post sharing: "PostContext.js"
