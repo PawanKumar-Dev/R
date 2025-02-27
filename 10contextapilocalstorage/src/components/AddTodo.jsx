@@ -1,6 +1,8 @@
-import React, { useState } from "react"
+import { useState } from "react"
+import useTodo from "../context/TodoContext"
 
-const AddTodo = ({ addTodo }) => {
+const AddTodo = () => {
+  const { addTodo } = useTodo()
   const [inputTodo, setInputTodo] = useState("")
 
   function handleSubmit(e) {
