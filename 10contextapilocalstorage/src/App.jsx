@@ -10,9 +10,14 @@ function App() {
     setTodos([...todos, { id: Date.now(), todo: todo, status: false }])
   }
 
-  function updateTodo() { }
+  function updateTodo(todo, id) {
+    setTodos([...todos, { id: id, todo: todo, status: false }])
+  }
 
-  function deleteTodo() { }
+  function deleteTodo(id) {
+    let newTodos = todos.filter((item) => id !== item.id);
+    setTodos(newTodos)
+  }
 
   function statusUpdateTodo() { }
 
@@ -26,7 +31,7 @@ function App() {
               return (
                 <li className="flex justify-between items-center p-3 bg-gray-100 rounded-lg shadow" key={todo.id}>
                   <span className="text-gray-800">📝 {todo.todo}</span>
-                  <button className="text-red-500 hover:text-red-700">✖</button>
+                  <button className="text-red-500 hover:text-red-700" onClick={() => deleteTodo(todo.id)}>✖</button>
                 </li>
               )
             })}
