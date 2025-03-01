@@ -5,18 +5,11 @@ import AddTodo from "./components/AddTodo"
 
 function App() {
   const [todos, setTodos] = useState([])
+  const [editId, setEditId] = useState(null)
+  const [editTodo, setEditTodo] = useState(null)
 
   function addTodo(todo) {
     setTodos([...todos, { id: Date.now(), todo: todo, status: false }])
-  }
-
-  function editTodo() {
-    
-  }
-
-  function updateTodo(todo, id) {
-    setTodos([...todos, { id: id, todo: todo, status: false }])
-    console.log("update finished")
   }
 
   function deleteTodo(id) {
@@ -35,6 +28,20 @@ function App() {
     setTodos(newTodos)
   }
 
+  function editSingleTodo(id, todo) {
+    setEditId(id)
+    setEditTodo(todo)
+  }
+
+  function updateTodo(id, todo) {
+    setTodos(
+      todos.map((item) => item.id === id ? { ...item, todo: todo } : item)
+    )
+    setEditId(null)
+  }
+
+  console.log(todos)
+
   return (
     <>
       <TodoProvider value={{ todos, addTodo, updateTodo, deleteTodo, statusUpdateTodo }} >
@@ -45,7 +52,13 @@ function App() {
               return (
                 <li className="flex justify-between items-center p-3 bg-gray-100 rounded-lg shadow" key={todo.id}>
                   <input type="checkbox" className="w-5 h-5 text-blue-500 rounded" onChange={() => statusUpdateTodo(todo.id)} />
-                  <span className={todo.status ? "text-gray-800 line-through" : "text-gray-800"} onClick={editTodo}>📝 {todo.todo}</span>
+
+                  {editId === todo.id ?
+                    <span className={todo.status ? "text-gray-800 line-through" : "text-gray-800"}><input type="text" defaultValue={todo.todo} onBlur={(e) => updateTodo(todo.id, e.target.value)} /></span>
+                    :
+                    <span className={todo.status ? "text-gray-800 line-through" : "text-gray-800"} onClick={() => editSingleTodo(todo.id, todo.todo)}>📝 {todo.todo}</span>
+                  }
+
                   <button className="text-red-500 hover:text-red-700" onClick={() => deleteTodo(todo.id)}>✖</button>
                 </li>
               )
