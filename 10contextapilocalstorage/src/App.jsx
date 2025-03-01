@@ -1,5 +1,4 @@
-import { useState } from "react"
-import "./App.css"
+import { useState, useEffect } from "react"
 import { TodoContext, TodoProvider } from "./context/TodoContext"
 import AddTodo from "./components/AddTodo"
 
@@ -7,6 +6,19 @@ function App() {
   const [todos, setTodos] = useState([])
   const [editId, setEditId] = useState(null)
   const [editTodo, setEditTodo] = useState(null)
+
+  useEffect(() => {
+    const savedTodos = localStorage.getItem("todos", todos)
+    if (savedTodos) {
+      setTodos(JSON.parse(savedTodos))
+    }
+  }, [])
+
+  useEffect(() => {
+    if (todos.length) {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
+  }, [todos])
 
   function addTodo(todo) {
     setTodos([...todos, { id: Date.now(), todo: todo, status: false }])
