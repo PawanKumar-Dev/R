@@ -3,18 +3,19 @@ import { removeTodo } from "../features/todo/todoSlice"
 
 const Todos = () => {
     const todos = useSelector(state => state.todos)
+    console.log(todos)
     const dispatch = useDispatch()
 
-    return (
+    return ( 
         <>
-            <h1>Todos</h1>
-            {todos.map((todo) => {
-                <li key={todo.id}>
-                    {todo.text}
-
-                    <button onClick={() => dispatch(removeTodo(todo.id))}>X</button>
-                </li>
-            })}
+            <ul>
+                {todos.map((todo) => (
+                    <li key={todo.id}>
+                        {todo.text}
+                        <button onClick={() => dispatch(removeTodo(todo.id))}>X</button>
+                    </li>
+                ))}
+            </ul>
         </>
     )
 }
