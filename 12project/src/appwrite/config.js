@@ -56,6 +56,44 @@ export class Service {
         }
     }
 
+    async getPost(id) {
+        try {
+            return await databases.getDocument(
+                conf.appWriteDatabaseId,
+                conf.appWriteCollectionId,
+                id,
+            )
+        } catch (error) {
+            throw error
+        }
+    }
+
+    async getActivePosts() {
+        try {
+            return await databases.listDocuments(
+                conf.appWriteDatabaseId,
+                conf.appWriteCollectionId,
+                [
+                    Query.equal('blog_status', 'active')
+                ]
+            )
+        } catch (error) {
+            throw error
+        }
+    }
+
+    async uploadFile() {
+        try {
+            await storage.createFile(
+                conf.appWriteBucketId,
+                ID.unique(),
+                document.getElementById('uploader').files[0]
+            )
+        } catch (error) {
+            throw error
+        }
+    }
+
 }
 
 const service = new Service()
