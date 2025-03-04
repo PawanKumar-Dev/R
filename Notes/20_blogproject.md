@@ -30,3 +30,6 @@
   ```
   npm install react-hook-form
   ```
+
+- Lastly we must store our environment variables data in seprate file ".env" and in the root folder.
+- Similarly ".env.sample" file is copy which contains only dummy data that we can ship everywhere. But actual ".env" file should not be shared anywhere.
