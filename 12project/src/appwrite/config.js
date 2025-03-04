@@ -16,6 +16,32 @@ export class Service {
         this.storage = new Storage(this.client)
     }
 
+    async createPost({ blog_title, blog_content, blog_img, blog_status, userId }) {
+        try {
+            return await databases.createDocument(
+                conf.appWriteDatabaseId,
+                conf.appWriteCollectionId,
+                ID.unique(),
+                { blog_title, blog_content, blog_img, blog_status, userId }
+            )
+        } catch (error) {
+            throw error
+        }
+    }
+
+    async updatePost(id, { blog_title, blog_content, blog_img, blog_status }) {
+        try {
+            return await databases.updateDocument(
+                conf.appWriteDatabaseId,
+                conf.appWriteCollectionId,
+                id,
+                { blog_title, blog_content, blog_img, blog_status }
+            )
+        } catch (error) {
+            throw error
+        }
+    }
+
 }
 
 const service = new Service()
