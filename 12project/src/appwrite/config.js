@@ -18,7 +18,7 @@ export class Service {
 
     async createPost({ blog_title, blog_content, blog_img, blog_status, userId }) {
         try {
-            return await databases.createDocument(
+            return await this.databases.createDocument(
                 conf.appWriteDatabaseId,
                 conf.appWriteCollectionId,
                 ID.unique(),
@@ -31,7 +31,7 @@ export class Service {
 
     async updatePost(id, { blog_title, blog_content, blog_img, blog_status }) {
         try {
-            return await databases.updateDocument(
+            return await this.databases.updateDocument(
                 conf.appWriteDatabaseId,
                 conf.appWriteCollectionId,
                 id,
@@ -44,7 +44,7 @@ export class Service {
 
     async deletePost(id) {
         try {
-            await databases.deleteDocument(
+            await this.databases.deleteDocument(
                 conf.appWriteDatabaseId,
                 conf.appWriteCollectionId,
                 id
@@ -58,7 +58,7 @@ export class Service {
 
     async getPost(id) {
         try {
-            return await databases.getDocument(
+            return await this.databases.getDocument(
                 conf.appWriteDatabaseId,
                 conf.appWriteCollectionId,
                 id,
@@ -70,7 +70,7 @@ export class Service {
 
     async getActivePosts() {
         try {
-            return await databases.listDocuments(
+            return await this.databases.listDocuments(
                 conf.appWriteDatabaseId,
                 conf.appWriteCollectionId,
                 [
@@ -82,12 +82,36 @@ export class Service {
         }
     }
 
-    async uploadFile() {
+    async uploadFile(file) {
         try {
-            await storage.createFile(
+            return await this.storage.createFile(
                 conf.appWriteBucketId,
                 ID.unique(),
-                document.getElementById('uploader').files[0]
+                file
+            )
+        } catch (error) {
+            throw error
+        }
+    }
+
+    async deleteFile(fileID) {
+        try {
+            await this.storage.deleteFile(
+                conf.appWriteBucketId,
+                fileID
+            )
+            return true
+        } catch (error) {
+            throw error
+            return false
+        }
+    }
+
+    async previewFile(fileID) {
+        try {
+            return await this.storage.getFilePreview(
+                conf.appWriteBucketId,
+                fileID
             )
         } catch (error) {
             throw error
