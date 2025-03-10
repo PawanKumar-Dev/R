@@ -7,7 +7,7 @@
   npm install react-router-dom
   ```
 
-- "Link" is key part of navigation. Allows you to create hyperlinks we can click on to navigate application without triggering a full page reload.
+- "Link": Allow you to create hyperlinks to navigate app without triggering a full page reload.
 
 
 - "NavLink" allows you to create nav links while also giving you the ability to add styling to indicate the active state of the link.
