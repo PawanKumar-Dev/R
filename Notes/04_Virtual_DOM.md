@@ -10,7 +10,6 @@
 - React applies all changes to V-DOM first.
 - Then efficiently updates the real DOM in a "batch process".
 
-
    [User Interaction]
            │
            ▼
@@ -19,7 +18,7 @@
            ▼
    [Virtual DOM Update]
            │
-   (Reconciliation(Diffing): Diff between new & old Virtual DOM)
+   (Reconciliation: Diff between new & old Virtual DOM)
            │
            ▼
    [Batch Processing of Changes]
