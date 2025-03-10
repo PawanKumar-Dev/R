@@ -17,7 +17,7 @@
 
 - With Fiber our UI don't freeze, prioritze UI experience and updates incrementally.
 
-
+```
          [User Interaction / Data Change]
                      │
                      ▼
@@ -43,3 +43,4 @@
                      │
                      ▼
                [Smooth UI Updates]
+```
