@@ -8,7 +8,6 @@
   ```
 
 - "Link": Allow you to create hyperlinks to navigate app without triggering a full page reload.
-
 - "NavLink": Allows us to create links which giving you the ability to add styling to indicate the active state of the link.
   ```
   <NavLink to="/" className={({ isActive }) => `font-medium ${isActive ? 'text-amber-950' : 'text-white'} transition`}>Home</NavLink>
@@ -16,7 +15,6 @@
 
 - To create the routes we can use:
   ```
-  import { StrictMode } from 'react'
   import { createRoot } from 'react-dom/client'
   import { RouterProvider, createBrowserRouter } from "react-router-dom";
   import App from './App.jsx'
