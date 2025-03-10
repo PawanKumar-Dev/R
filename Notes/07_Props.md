@@ -16,7 +16,29 @@
   <UserCard age={age} user={user} items={items} />
   ```
 
-- Then we can access via format {props.variable} or we can apply destructing on top and then use that.
-  - e.g., ({ age })
+- Then we can access via format {props.variable}
+  ```
+  function UserCard(props) {
+    return (
+      <div>
+        <h2>{props.user.name}</h2>
+        <p>Age: {props.age}</p>
+      </div>
+    );
+  }
+  ```
+
+- We can apply destructing on props and simplify things further.
+  ```
+  function UserCard({ user, age }) {
+    return (
+      <div>
+        <h2>{user.name}</h2>
+        <p>Age: {age}</p>
+      </div>
+    );
+  }
+  ```
+
 - You can also pass default value to these props when destructuring.
   - e.g., ({ age=15 })
