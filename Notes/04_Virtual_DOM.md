@@ -10,6 +10,7 @@
 - React applies all changes to V-DOM first.
 - Then efficiently updates the real DOM in a "batch process".
 
+```
    [User Interaction]
            │
            ▼
@@ -28,3 +29,4 @@
            │
            ▼
    [Browser Reflow & Repaint]
+```
