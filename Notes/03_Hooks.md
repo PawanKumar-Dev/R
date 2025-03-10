@@ -4,14 +4,16 @@
 
 
 - By "array destructuring", we assign two returned values to variables with meaningful names.
-  - [ currentStateValue, stateUpdaterFunction] = useState(0)
+  ```[ currentStateValue, stateUpdaterFunction] = useState(0)```
 
 
-- In useState() we can pass anything we want initally like: ('') or (0) etc.
+- In useState() we can pass anything we want like: ('') or (0).
+- This is the intial value loaded in our "currentStateValue".
 
 
-- When you use "useState", you're telling React to remember a piece of data (the state) and automatically re-render the component whenever that data changes.
-  e.g: let [count, setCount] = useState(0);
+- When we use "useState", you're telling React to remember a piece of data (the state)
+- And automatically re-render the component whenever that data(state) changes.
+  ```let [count, setCount] = useState(0)```
 
 
 - "useState hook" returns an "Array" with two items:
