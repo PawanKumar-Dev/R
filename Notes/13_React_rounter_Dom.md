@@ -9,8 +9,7 @@
 
 - "Link": Allow you to create hyperlinks to navigate app without triggering a full page reload.
 
-
-- "NavLink" allows you to create nav links while also giving you the ability to add styling to indicate the active state of the link.
+- "NavLink": Allows us to create links which giving you the ability to add styling to indicate the active state of the link.
   ```
   <NavLink to="/" className={({ isActive }) => `font-medium ${isActive ? 'text-amber-950' : 'text-white'} transition`}>Home</NavLink>
   ```
