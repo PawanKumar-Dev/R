@@ -3,7 +3,9 @@
 - React Router DOM is an additional library. Not part of core React.
 
 - React Router DOM let you handle routing by mapping URLs to different components in your app without any reloads.
-  ```npm install react-router-dom```
+  ```
+  npm install react-router-dom
+  ```
 
 - "Link" is key part of navigation. Allows you to create hyperlinks we can click on to navigate application without triggering a full page reload.
 
