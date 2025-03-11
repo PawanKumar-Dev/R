@@ -1,7 +1,6 @@
-import React from 'react'
 import { Container, Logout } from '../index'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const Header = () => {
   const authStatus = useSelector((state) => state.auth.status)
@@ -34,7 +33,26 @@ const Header = () => {
     }
   ]
   return (
-    <div>Header</div>
+    <>
+      <header class="bg-white shadow-md">
+        <Container>
+          <div class="flex justify-between items-center py-4">
+            <Link to="/" class="text-2xl font-bold text-gray-800">MyBrand</Link>
+
+            <nav class="hidden md:flex space-x-6">
+              {navItems.map(() => navItems.active ? (
+                <li key={item.name}><button onClick={() => navigate(item.slug)}>{item.name}</button></li>
+              ) : null)}
+            </nav>
+
+            {authStatus && (
+              <Logout />
+            )}
+          </div>
+        </Container>
+      </header>
+
+    </>
   )
 }
 
