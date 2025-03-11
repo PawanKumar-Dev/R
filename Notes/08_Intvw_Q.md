@@ -1,11 +1,6 @@
 # What is Batch update
 
 - Below code in counter doesn't update our counter by four.
-
-- Becoz of how React batches state updates for performance optimization.
-
-- When you call setCount(count + 1) multiple times in the same function, React doesn't update count immediately after each call.
-
   ```
   const upCounter = () => {
     setCount(count + 1)
@@ -14,6 +9,10 @@
     setCount(count + 1)
   }
   ```
+
+- Becoz of how React batches state updates for performance optimization.
+
+- When you call setCount(count + 1) multiple times in the same function, React doesn't update count immediately after each call.
 
 - React's state updates are asynchronous and may not happen immediately. This design helps with performance.
 

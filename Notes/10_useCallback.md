@@ -6,12 +6,19 @@
 
 - This can lead to performance issues sometimes. And to optimize this, we use "useCallback".
   ```
-  const cachedFunction = useCallback(
-    () => {
-      // Your function logic
-    },
-    [dependencies]
-  )
+  import { useCallback } from 'react'
+
+  const MyComponent = ({ someProp }) => {
+    const memoizedFunction = useCallback(() => {
+      // your logic here
+    }, [someProp]); // Only re-create the function when `someProp` changes.
+  
+    return (
+      <div>
+        {/* Use your function as needed */}
+      </div>
+    )
+  }
   ```
 
 - useCallback hook cache this "callback function" and only re-render this function if dependencies change. This make our UI render way fast.

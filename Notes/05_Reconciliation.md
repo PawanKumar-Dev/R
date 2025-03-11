@@ -7,3 +7,20 @@
 
 - When rendering lists, React uses "key" attributes to track elements. Proper keys help React identify which items have changed, enabling efficient reordering or updates.
 - Hence using "key" in list is always best choice.
+
+           [State/Props Update]
+                    │
+                    ▼
+       [React Re-renders Component]
+                    │
+                    ▼
+       [New Virtual DOM Tree Created]
+                    │
+                    ▼    (Diffing Algorithm)
+          [Compare with Old Virtual DOM]
+                    │
+                    ▼ 
+      [Determine Minimal Set of Changes]
+                    │
+                    ▼
+       [Batch Update Real DOM Efficiently]

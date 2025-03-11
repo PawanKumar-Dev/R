@@ -1,19 +1,20 @@
 # React Router DOM
 
-- React Router Dom is an additional library. Lets you handle routing by mapping URLs to different components in your application without any reloads.
-  ```npm install react-router-dom```
+- React Router DOM is an additional library. Not part of core React.
 
-- "Link" is key part of navigation. Allows you to create hyperlinks we can click on to navigate application without triggering a full page reload.
+- React Router DOM let you handle routing by mapping URLs to different components in your app without any reloads.
+  ```
+  npm install react-router-dom
+  ```
 
-
-- "NavLink" allows you to create nav links while also giving you the ability to add styling to indicate the active state of the link.
+- "Link": Allow you to create hyperlinks to navigate app without triggering a full page reload.
+- "NavLink": Allows us to create links which giving you the ability to add styling to indicate the active state of the link.
   ```
   <NavLink to="/" className={({ isActive }) => `font-medium ${isActive ? 'text-amber-950' : 'text-white'} transition`}>Home</NavLink>
   ```
 
 - To create the routes we can use:
   ```
-  import { StrictMode } from 'react'
   import { createRoot } from 'react-dom/client'
   import { RouterProvider, createBrowserRouter } from "react-router-dom";
   import App from './App.jsx'
